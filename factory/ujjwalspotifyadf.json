@@ -1,0 +1,9 @@
+{
+	"name": "ujjwalspotifyadf",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "3a5e8878-af46-4938-9b6d-cf68a0cd7df5",
+		"tenantId": "7ca221ab-477c-4770-b20e-68b872691605"
+	}
+}
