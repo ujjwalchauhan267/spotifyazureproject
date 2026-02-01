@@ -1,0 +1,84 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "ujjwalspotifyadf"
+		},
+		"Ujjwaldatalake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'Ujjwaldatalake'"
+		},
+		"ujjwalazure_sql_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ujjwalazure_sql'"
+		},
+		"Ujjwaldatalake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://ujjwalspotifystorage.dfs.core.windows.net/"
+		},
+		"ujjwalazure_sql_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "ujjwalspotifyserver.database.windows.net"
+		},
+		"ujjwalazure_sql_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "ujjwalspotifydb"
+		},
+		"ujjwalazure_sql_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminujjwal"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "ujjwalspotifyadf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Ujjwaldatalake_accountKey": {
+						"value": "[parameters('Ujjwaldatalake_accountKey')]"
+					},
+					"ujjwalazure_sql_password": {
+						"value": "[parameters('ujjwalazure_sql_password')]"
+					},
+					"Ujjwaldatalake_properties_typeProperties_url": {
+						"value": "[parameters('Ujjwaldatalake_properties_typeProperties_url')]"
+					},
+					"ujjwalazure_sql_properties_typeProperties_server": {
+						"value": "[parameters('ujjwalazure_sql_properties_typeProperties_server')]"
+					},
+					"ujjwalazure_sql_properties_typeProperties_database": {
+						"value": "[parameters('ujjwalazure_sql_properties_typeProperties_database')]"
+					},
+					"ujjwalazure_sql_properties_typeProperties_userName": {
+						"value": "[parameters('ujjwalazure_sql_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

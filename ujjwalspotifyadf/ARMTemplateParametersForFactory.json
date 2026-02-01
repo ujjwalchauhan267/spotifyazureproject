@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "ujjwalspotifyadf"
+		},
+		"Ujjwaldatalake_accountKey": {
+			"value": ""
+		},
+		"ujjwalazure_sql_password": {
+			"value": ""
+		},
+		"Ujjwaldatalake_properties_typeProperties_url": {
+			"value": "https://ujjwalspotifystorage.dfs.core.windows.net/"
+		},
+		"ujjwalazure_sql_properties_typeProperties_server": {
+			"value": "ujjwalspotifyserver.database.windows.net"
+		},
+		"ujjwalazure_sql_properties_typeProperties_database": {
+			"value": "ujjwalspotifydb"
+		},
+		"ujjwalazure_sql_properties_typeProperties_userName": {
+			"value": "adminujjwal"
+		}
+	}
+}
